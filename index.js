@@ -273,6 +273,24 @@ app.get("/comment/:id", (req, res) => {
     // res.send("hello");
 });
 
+//Editing the comment (Update Operation)
+app.get("/comment/:id/edit", (req, res) => {
+    const { id } = req.params;
+    const data = arr.find((obj) => obj.id === parseInt(id));
+
+    res.render("edit", { data });
+});
+
+app.put("/comment/:id", (req, res) => {
+    const { id } = req.params;
+    const newData = req.body.comment;
+    const oldData = arr.find((obj) => obj.id === parseInt(id));
+    // console.log(oldData.comment);
+    console.log(req.body.comment);
+    oldData.comment = newData;
+    res.redirect("/comment");
+});
+
 app.listen(3010, () => {
     console.log("Server running on port number 3010");
 });
