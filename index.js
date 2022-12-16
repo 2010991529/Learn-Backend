@@ -262,6 +262,16 @@ app.post("/comment", (req, res) => {
     // res.send("data aa gya");
 });
 
+//Id(0,1,2,3) , se kaise find out krun particular object
+app.get("/comment/:id", (req, res) => {
+    const { id } = req.params;
+    const data = arr.find((obj) => obj.id === parseInt(id));
+    // console.log(id);
+    // console.log(data);
+    //EJS FILE CREATED ---> show.ejs
+    res.render("show", { data });
+    // res.send("hello");
+});
 
 app.listen(3010, () => {
     console.log("Server running on port number 3010");
