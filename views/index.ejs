@@ -1,18 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-
-    <% for(let i of arr){ %>
-        <h1><%= i.id %></h1>
-        <h1><%= i.username %></h1>
-        <h4><%= i.comment %></h4>
-    <% } %>
-
+    <!-- <% for(let i of arr){ %>
+        <h1>
+            <%= i.username %>
+        </h1>
+        <p>
+            <%= i.comment %>
+        </p>
+        <a href="/comment/<%=i.id %>/edit">Edit</a>
+        <form action="/comment/<%=i.id %>?_method=DELETE" method="POST">
+            <button>Delete</button>
+        </form>
+        <% } %> -->
 </body>
+
 </html>
+
+<!-- 
+//This is template page not HTML page
+<h2>
+    Hello ji
+    <%= 5+3 %>
+        // Calculate krana ho ya evaluate krna ho
+</h2>
+<h2>Hello Ji Ankit </h2>
+<p>Kahan ho</p> -->

@@ -200,54 +200,49 @@
 //Task-2 (CREATE)
 
 
-const express = require('express');
+const express = require("express");
+const { reset } = require("nodemon");
 const app = express();
-app.use(express.urlencoded({extended:true}));
-app.set('view engine','ejs');
 
-const arr = [
+app.set("view engine", "ejs"); // Front end provide krega
+//CRUD operation is used in REST API
+//CRUD Operation ---> create , read , update , delete --> Ecommerce website
+//Array is created. I have no database
+app.use(express.urlencoded({ extended: true }));
+var methodOverride = require("method-override");
+app.use(methodOverride("_method"));
+let arr = [
+    //4 dummy data is made
+    // Key:Value Pair , array of objects is made
     {
-        id:0,
-        username:'Devanshi',
-        comment:"Lives in Dabwali"
+        id: 0,
+        username: "aarzoo",
+        comment: "Chitkara is nice university",
     },
     {
-        id:1,
-        username:'Abhay',
-        comment:"Lives in Bilaspur"
+        id: 1,
+        username: "ankit",
+        comment: "Shimla is good place!",
     },
     {
-        id:2,
-        username:'Prerna',
-        comment:"Lives in Dabwali"
+        id: 2,
+        username: "manish",
+        comment: "Solan is good place!",
     },
     {
-        id:3,
-        username:'Riya',
-        comment:"Lives in Panipat"
+        id: 3,
+        username: "jahnvi",
+        comment: "Kasauli is good place!",
     }
-]
+];
 
-app.get('/',(req,res)=>{
-    res.send('hello')
-})
+//Comment read krna hai
 
-app.get('/comment',(req,res)=>{
-    res.render('index',{arr})
-})
+app.get("/", (req, res) => {
+    res.send("hello");
+});
 
-app.get('/comment/new',(req,res)=>{
-    res.render('new')
-})
+app.listen(3010, () => {
+    console.log("Server running on port number 3010");
+});
 
-app.post('/comment',(req,res)=>{
-    console.log(req.body)
-    arr.push(req.body)
-    res.redirect('/comment')
-    // res.send('data arrived 👻')
-})
-
-const port = 4000;
-app.listen(port,()=>{
-    console.log(`server running on port number:- ${port}`);
-})
