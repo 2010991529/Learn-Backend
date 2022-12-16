@@ -241,6 +241,13 @@ let arr = [
 app.get("/", (req, res) => {
     res.send("hello");
 });
+// Data read krna hai only  ---> ke liye get method use kro only
+//Restful Architecture--> route ka naam milta julta likhna hai
+app.get("/comment", (req, res) => {
+    //Show data of all comments
+    res.render("index", { arr }); // File show krni hai , and data arr show krna hai
+    // Rest Api says that template file name should be index.js only --> Important
+});
 
 app.listen(3010, () => {
     console.log("Server running on port number 3010");
