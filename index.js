@@ -249,6 +249,20 @@ app.get("/comment", (req, res) => {
     // Rest Api says that template file name should be index.js only --> Important
 });
 
+app.get("/comment/new", (req, res) => {
+    res.render("new"); // new route ---> created name of file same
+});
+
+//In post method ---> req.body used
+// In get method --> req.params used
+app.post("/comment", (req, res) => {
+    // console.log(req.body);
+    arr.push(req.body);
+    res.redirect("/comment");
+    // res.send("data aa gya");
+});
+
+
 app.listen(3010, () => {
     console.log("Server running on port number 3010");
 });
