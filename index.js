@@ -291,6 +291,14 @@ app.put("/comment/:id", (req, res) => {
     res.redirect("/comment");
 });
 
+//Delete functionality
+app.delete("/comment/:id", (req, res) => {
+    const { id } = req.params;
+    const deleted = arr.filter((c) => c.id !== parseInt(id));
+    arr = deleted;
+    res.redirect("/comment");
+});
+
 app.listen(3010, () => {
     console.log("Server running on port number 3010");
 });
